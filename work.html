@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | Scodes - Selected Projects and Experiences</title>
+    <meta name="description"
+        content="Discover Scodes’ portfolio of creative websites, landing pages, animations, and interactive digital projects crafted with precision.">
+    <meta name="keywords" content="Scodes portfolio, web design projects, creative work, UI UX projects">
+    <meta name="author" content="Scodes">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <style>
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .navbar a {
+            margin-left: 30px;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #38bdf8;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        #smoke-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            /* content ke peeche */
+            background: #0f172a;
+            /* website base color */
+        }
+
+        /* Base */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #fff;
+        }
+
+        /* Hero */
+        .work-hero {
+            text-align: center;
+            padding: 120px 20px;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .work-hero h1 {
+            font-size: 52px;
+            margin-bottom: 16px;
+        }
+
+        .work-hero h1 span {
+            color: #38bdf8;
+        }
+
+        .work-hero p {
+            font-size: 18px;
+            opacity: 0.85;
+        }
+
+        /* Gallery Grid */
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            padding: 0 60px 100px;
+        }
+
+        /* Portfolio Card */
+        .portfolio-card {
+            background: linear-gradient(145deg, #111827, #1e293b);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 50px 100px rgba(56, 189, 248, 0.45);
+        }
+
+        /* Media Container */
+        .media-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-container img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Preview link (appears on hover) */
+        .preview-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 2;
+        }
+
+        .portfolio-card:hover .preview-link {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Portfolio content */
+        .portfolio-content {
+            padding: 30px;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .portfolio-content {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-content h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-content p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        /* Tech Stack Badges */
+        .tech-stack span {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .portfolio-card:hover .tech-stack span {
+            background: rgba(56, 189, 248, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .work-hero h1 {
+                font-size: 38px;
+            }
+
+            .work-hero p {
+                font-size: 16px;
+            }
+
+            .media-container img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <h2 class="logo">Scodes<span>.</span></h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="work-hero">
+        <h1>My <span>Portfolio</span></h1>
+        <p>Check out my latest projects (offline preview). Click when hosting is live.</p>
+    </section>
+
+    <section class="portfolio-gallery">
+
+        <!-- Project 1 -->
+        <div class="portfolio-card">
+            <div class="media-container">
+                <img src="Screenshot 2025-12-24 162253.jpg" alt="Project 1">
+                <!-- If hosting live, replace # with link -->
+                <a href="https://www.fiverr.com/s/XL5RE0m" class="preview-link">View Live</a>
+            </div>
+            <div class="portfolio-content">
+                <h3>Website 1</h3>
+                <p>Responsive web design with clean UI and performance focus.</p>
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-card">
+            <div class="media-container">
+                <img src="Screenshot 2025-12-25 012647.jpg" alt="Project 2">
+                <a href="https://www.fiverr.com/s/XL5RE0m" class="preview-link">View Live</a>
+            </div>
+            <div class="portfolio-content">
+                <h3>Website 2</h3>
+                <p>Landing page with high conversion focus and animations.</p>
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JS</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

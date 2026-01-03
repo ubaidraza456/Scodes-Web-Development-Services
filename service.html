@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Services | Scodes - Web Design and Interactive Solutions</title>
+    <meta name="description"
+        content="Explore Scodes services including web development, UI design, animations, interactions, and landing page solutions built for modern brands.">
+    <meta name="keywords"
+        content="web services, UI design services, animation services, interactive design, Scodes services">
+    <meta name="author" content="Scodes">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .service-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at top, #38bdf8, transparent 60%),
+                #0f172a;
+        }
+
+        .service-hero h1 {
+            font-size: 60px;
+            animation: fadeDown 1.2s ease;
+        }
+
+        .service-hero span {
+            color: #38bdf8;
+        }
+
+        .service-hero p {
+            max-width: 650px;
+            margin: 20px auto 0;
+            opacity: .85;
+            animation: fadeUp 1.6s ease;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 120px 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 50px 35px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            overflow: hidden;
+            transform: translateY(60px);
+            opacity: 0;
+            transition: .8s ease;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
+            opacity: 0;
+            transition: .6s;
+        }
+
+        .service-card:hover::before {
+            opacity: .25;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(56, 189, 248, .35);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            opacity: .85;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .service-card a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .service-card a::after {
+            content: "→";
+            margin-left: 8px;
+            transition: .3s;
+        }
+
+        .service-card a:hover::after {
+            margin-left: 14px;
+        }
+
+        /* ===== CTA ===== */
+        .service-cta {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+        }
+
+        .service-cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .service-cta a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 40px;
+            border-radius: 30px;
+            background: #fff;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .4s;
+        }
+
+        .service-cta a:hover {
+            transform: translateY(-6px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px) {
+            .service-hero h1 {
+                font-size: 42px
+            }
+
+            .services {
+                padding: 80px 30px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="service-hero">
+        <div>
+            <h1>My <span>Services</span></h1>
+            <p>
+                I help brands & businesses grow with modern websites,
+                clean UI/UX and smooth animations that convert visitors into clients.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>
+                    Fast, responsive and SEO-friendly websites built using
+                    modern HTML, CSS & JavaScript.
+                </p>
+                <a href="learnmore1.html">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>UI / UX Design</h3>
+                <p>
+                    User-focused designs with clean layouts,
+                    proper spacing and high-end visual hierarchy.
+                </p>
+                <a href="learnmore2.html">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Animations & Interactions</h3>
+                <p>
+                    Smooth transitions, hover effects,
+                    scroll animations and micro-interactions.
+                </p>
+                <a href="learnmore3.html">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Landing Pages</h3>
+                <p>
+                    High-converting landing pages for Fiverr,
+                    Upwork and business marketing campaigns.
+                </p>
+                <a href="learnmore4.html">Learn More</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta">
+        <h2>Need a Service Like This?</h2>
+        <p>Let’s discuss your project and build something premium.</p>
+        <a href="conversationpreview.html">Start a Project</a>
+    </section>
+
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        const cards = document.querySelectorAll('.service-card');
+
+        window.addEventListener('scroll', () => {
+            const trigger = window.innerHeight * 0.85;
+            cards.forEach(card => {
+                const top = card.getBoundingClientRect().top;
+                if (top < trigger) {
+                    card.style.opacity = 1;
+                    card.style.transform = "translateY(0)";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Web Design Trends in 2026 | Scodes</title>
+    <meta name="description"
+        content="Explore the top web design trends of 2026 and how modern design can boost engagement and conversions. Scodes Blog.">
+    <meta name="keywords" content="Scodes, web design trends, UI/UX, modern websites, web development, blog">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="brand">
+            <img src="Scodes.jpg" alt="Scodes Logo" class="brand-logo">
+            <h2 class="logo">Scodes<span>.</span></h2>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- CINEMATIC HERO -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <h1>Top 5 Web Design Trends in 2026</h1>
+            <p>Stay ahead of the curve with modern, interactive, and engaging website design strategies.</p>
+        </div>
+        <div class="floating-words">
+            <span>UI/UX</span>
+            <span>Interaction</span>
+            <span>Animation</span>
+            <span>Mobile</span>
+            <span>Performance</span>
+        </div>
+    </section>
+
+    <!-- BLOG CONTENT -->
+    <section class="blog-content">
+        <h2>1. Dark Mode & Minimalism</h2>
+        <p class="typewriter">Dark themes and minimalistic layouts are dominating modern web design, giving sites a
+            sleek and professional look.</p>
+
+        <h3>2. Interactive Micro Animations</h3>
+        <p class="typewriter">Micro-interactions on hover, scroll, and clicks enhance user experience and engagement.
+        </p>
+
+        <div class="highlight-box">
+            <strong>Pro Tip:</strong> Use subtle hover effects and animated icons for modern flair.
+        </div>
+
+        <h3>3. 3D Elements & Motion</h3>
+        <p class="typewriter">3D models, animated illustrations, and parallax scrolling are trending for immersive
+            websites.</p>
+
+        <h3>4. Speed & Performance</h3>
+        <p class="typewriter">Optimized websites load faster and reduce bounce rate. Design with performance in mind.
+        </p>
+
+        <h3>5. Mobile-first & Responsive</h3>
+        <p class="typewriter">Every trend must adapt to mobile devices first. Responsive design is no longer optional.
+        </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="blog-cta">
+        <a href="contact.html">Work With Us</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Scodes. Crafted with innovation & design.
+    </footer>
+
+    <!-- JS -->
+    <script>
+        // Hero floating motion
+        const hero = document.querySelector(".blog-hero");
+        hero.addEventListener("mousemove", e => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            hero.querySelector(".hero-content").style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Paragraph typing animation
+        const typeParagraphs = document.querySelectorAll('.typewriter');
+        typeParagraphs.forEach(p => {
+            const text = p.textContent;
+            p.textContent = '';
+            let index = 0;
+            setTimeout(() => {
+                function type() {
+                    if (index < text.length) {
+                        p.textContent += text[index];
+                        index++;
+                        setTimeout(type, 20);
+                    } else { p.style.opacity = 1; }
+                }
+                type();
+            }, 500);
+        });
+    </script>
+
+</body>
+
+</html>

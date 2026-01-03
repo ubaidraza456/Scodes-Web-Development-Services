@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Every Business Needs a Website | Scodes</title>
+    <meta name="description"
+        content="Discover why every business needs a professional website and how it helps in credibility, visibility, and client conversion. Scodes Blog.">
+    <meta name="keywords" content="Scodes, professional website, business website, web design, SEO, blog">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="brand">
+            <img src="Scodes.jpg" alt="Scodes Logo" class="brand-logo">
+            <h2 class="logo">Scodes<span>.</span></h2>
+        </div>
+        <nav>
+            <a href="index.jsx">Home</a>
+            <a href="service.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- CINEMATIC HERO -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <h1>Why Every Business Needs a Website</h1>
+            <p>Your website is your most powerful tool for trust, visibility, and conversion.</p>
+        </div>
+        <div class="floating-words">
+            <span>Trust</span>
+            <span>Growth</span>
+            <span>Visibility</span>
+            <span>Credibility</span>
+            <span>Conversion</span>
+        </div>
+    </section>
+
+    <!-- BLOG CONTENT SECTION -->
+    <section class="blog-content-section">
+        <div class="container">
+            <h2 class="fade-in">Why Every Business Needs a Professional Website</h2>
+            <p class="typewriter">
+                A website is more than just an online presence. It builds trust, showcases your services, and helps
+                potential clients find you easily. Without a professional website, businesses risk losing credibility in
+                a competitive market.
+            </p>
+
+            <h3 class="fade-in" style="animation-delay:1s;">Boost Credibility</h3>
+            <p class="typewriter" style="animation-delay:1.3s;">
+                Visitors instantly judge your business based on your website. A polished and well-structured website
+                communicates professionalism and reliability.
+            </p>
+
+            <div class="highlight-box fade-in" style="animation-delay:1.6s;">
+                <strong>Tip:</strong> Add client testimonials and a portfolio showcase to instantly increase trust.
+            </div>
+
+            <h3 class="fade-in" style="animation-delay:2s;">Increase Visibility</h3>
+            <p class="typewriter" style="animation-delay:2.3s;">
+                SEO-optimized content and blog posts ensure your website is discoverable on search engines. Your
+                audience finds you before your competitors do.
+            </p>
+
+            <h3 class="fade-in" style="animation-delay:2.6s;">Convert Visitors Into Clients</h3>
+            <p class="typewriter" style="animation-delay:2.9s;">
+                Clear call-to-actions, service details, and interactive previews guide users to take action, turning
+                casual visitors into paying clients.
+            </p>
+
+            <div class="highlight-box fade-in" style="animation-delay:3.2s;">
+                <strong>Pro Tip:</strong> Include interactive previews, downloadable resources, or demo videos to engage
+                visitors.
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="blog-cta">
+        <a href="contact.html">Start Your Project</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Scodes. Crafted with strategy & code.
+    </footer>
+
+    <!-- JS -->
+    <script>
+        // Hero floating motion
+        const hero = document.querySelector(".blog-hero");
+        hero.addEventListener("mousemove", e => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            hero.querySelector(".hero-content").style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Paragraph typing animation
+        const typeParagraphs = document.querySelectorAll('.typewriter');
+
+        typeParagraphs.forEach(p => {
+            const text = p.textContent;
+            p.textContent = '';
+            let index = 0;
+            const delay = parseFloat(getComputedStyle(p).animationDelay || 0) * 1000;
+            setTimeout(() => {
+                function type() {
+                    if (index < text.length) {
+                        p.textContent += text[index];
+                        index++;
+                        setTimeout(type, 20);
+                    } else {
+                        p.style.opacity = 1;
+                    }
+                }
+                type();
+            }, delay);
+        });
+
+    </script>
+
+</body>
+
+</html>

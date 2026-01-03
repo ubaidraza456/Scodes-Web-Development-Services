@@ -1,0 +1,267 @@
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        /* LOGO + TEXT WRAPPER */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* ← yahin se distance control hota hai */
+        }
+
+        /* CIRCLE LOGO */
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* TEXT LOGO */
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        /* CINEMATIC HERO */
+        .blog-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: "";
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, #38bdf8, transparent 70%);
+            opacity: 0.15;
+            filter: blur(120px);
+            animation: floatGlow 12s infinite alternate;
+        }
+
+        @keyframes floatGlow {
+            from {
+                transform: translate(-100px, -50px);
+            }
+
+            to {
+                transform: translate(100px, 50px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #38bdf8, #a5f3fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            color: #cbd5f5;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 2s forwards 1s;
+        }
+
+        .floating-words span {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.06);
+            font-size: 40px;
+            font-weight: 700;
+            animation: floatWords 20s linear infinite;
+        }
+
+        .floating-words span:nth-child(1) {
+            top: 15%;
+            left: 10%;
+        }
+
+        .floating-words span:nth-child(2) {
+            top: 70%;
+            left: 20%;
+        }
+
+        .floating-words span:nth-child(3) {
+            top: 30%;
+            right: 15%;
+        }
+
+        .floating-words span:nth-child(4) {
+            bottom: 20%;
+            right: 25%;
+        }
+
+        .floating-words span:nth-child(5) {
+            top: 50%;
+            left: 50%;
+        }
+
+        @keyframes floatWords {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* BLOG CONTENT */
+        .blog-content {
+            max-width: 900px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .blog-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #38bdf8;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s forwards;
+        }
+
+        .blog-content h3 {
+            font-size: 24px;
+            color: #60a5fa;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s forwards;
+        }
+
+        .blog-content p {
+            margin-bottom: 25px;
+            color: #d1d5db;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .highlight-box {
+            background: rgba(56, 189, 248, 0.08);
+            border-left: 4px solid #38bdf8;
+            padding: 20px;
+            margin: 40px 0;
+            border-radius: 8px;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: popIn 0.8s forwards;
+        }
+
+        /* CTA */
+        .blog-cta {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .blog-cta a {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 40px;
+            background: #38bdf8;
+            color: #020617;
+            font-weight: 700;
+            transition: 0.3s;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.5s;
+        }
+
+        .blog-cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }

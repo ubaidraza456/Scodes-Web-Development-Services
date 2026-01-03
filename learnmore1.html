@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Development Services | Scodes</title>
+    <meta name="description"
+        content="Scodes provides modern, fast, and scalable web development services using clean code, smooth UX, and responsive layouts.">
+    <meta name="keywords" content="web development services, website development, Scodes web development">
+    <meta name="author" content="Scodes">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        #smoke-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            /* content ke peeche */
+            background: #0f172a;
+            /* website base color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO ===== */
+        .web-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full screen */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #0f172a;
+        }
+
+        /* Background video */
+        .web-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.75) saturate(1.1);
+        }
+
+        /* Overlay for readability */
+        .web-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(15, 23, 42, 0.85),
+                    rgba(15, 23, 42, 0.65));
+            z-index: 1;
+        }
+
+        /* Hero Content */
+        .web-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            color: #fff;
+        }
+
+        .web-hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 24px;
+        }
+
+        .web-hero-content h1 span {
+            color: #38bdf8;
+        }
+
+        .web-hero-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 36px;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 52px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.4s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 25px 45px rgba(56, 189, 248, 0.45);
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .web-hero-content h1 {
+                font-size: 40px;
+            }
+
+            .web-hero-content p {
+                font-size: 16px;
+            }
+        }
+
+        /* .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                radial-gradient(circle at top, #38bdf8, transparent 60%),
+                #0f172a;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            animation: fadeDown 1.2s ease;
+        }
+
+        .hero span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 25px auto 0;
+            opacity: .85;
+            animation: fadeUp 1.6s ease;
+        } */
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 120px 80px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* ===== FEATURE CARDS ===== */
+        .feature {
+            padding: 45px 40px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            transform: translateY(60px);
+            opacity: 0;
+            transition: .8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
+            opacity: 0;
+            transition: .6s;
+        }
+
+        .feature:hover::before {
+            opacity: .25;
+        }
+
+        .feature:hover {
+            transform: translateY(-18px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(56, 189, 248, .35);
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            opacity: .85;
+            line-height: 1.7;
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            margin-top: 100px;
+        }
+
+        .process h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: .8s ease;
+        }
+
+        .step span {
+            min-width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #38bdf8;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 15px 45px;
+            background: #fff;
+            color: #0f172a;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .4s;
+        }
+
+        .cta a:hover {
+            transform: translateY(-6px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 42px
+            }
+
+            .section {
+                padding: 80px 30px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="smoke-canvas"></canvas>
+    <!-- HERO -->
+    <section class="web-hero">
+
+        <!-- Background Video -->
+        <video class="web-hero-video" autoplay muted loop playsinline>
+            <source src="27920-366469249_tiny.mp4" type="video/mp4">
+        </video>
+
+        <!-- Hero Content -->
+        <div class="web-hero-content">
+            <h1>Web Development <span>Services</span></h1>
+            <p>I design and develop responsive, modern, and high-performing websites for clients worldwide.</p>
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section">
+        <div class="grid">
+
+            <div class="feature">
+                <h3>Responsive Design</h3>
+                <p>
+                    Your website will look perfect on mobile, tablet and desktop
+                    with a fully responsive layout.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3>Clean & Optimized Code</h3>
+                <p>
+                    SEO-friendly, lightweight and well-structured code
+                    for speed and long-term scalability.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3>Modern UI & Animations</h3>
+                <p>
+                    Smooth transitions, scroll animations and micro-interactions
+                    that give a premium user experience.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3>Performance Focused</h3>
+                <p>
+                    Fast loading times, optimized assets and best practices
+                    for high performance.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- PROCESS -->
+        <div class="process">
+            <h2>My Development Process</h2>
+
+            <div class="step">
+                <span>1</span>
+                <div>
+                    <h4>Planning & Research</h4>
+                    <p>Understanding your business goals and project requirements.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <div>
+                    <h4>Design & Structure</h4>
+                    <p>Creating layout structure and UI flow for best user experience.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <div>
+                    <h4>Development & Animation</h4>
+                    <p>Coding with clean structure, animations and interactions.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>4</span>
+                <div>
+                    <h4>Testing & Delivery</h4>
+                    <p>Testing across devices and delivering a polished website.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Want a Website Like This?</h2>
+        <p>Let’s build a high-quality web experience together.</p>
+        <br>
+        <a href="conversationpreview.html">Start a Project</a>
+    </section>
+
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        const canvas = document.getElementById('smoke-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let w, h;
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class SmokeParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * w;
+                this.y = h + Math.random() * 200;
+                this.size = 80 + Math.random() * 120;
+                this.speedY = 0.2 + Math.random() * 0.6;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.opacity = 0.03 + Math.random() * 0.05;
+                this.life = 0;
+                this.maxLife = 600 + Math.random() * 400;
+                this.color = `rgba(56,189,248,${this.opacity})`; /* blue smoke */
+            }
+
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                this.life++;
+
+                if (this.life > this.maxLife) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.filter = "blur(40px)";
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        const particles = [];
+        for (let i = 0; i < 30; i++) {
+            particles.push(new SmokeParticle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        const features = document.querySelectorAll('.feature');
+        const steps = document.querySelectorAll('.step');
+
+        window.addEventListener('scroll', () => {
+            const trigger = window.innerHeight * 0.85;
+
+            features.forEach(f => {
+                if (f.getBoundingClientRect().top < trigger) {
+                    f.style.opacity = 1;
+                    f.style.transform = "translateY(0)";
+                }
+            });
+
+            steps.forEach(s => {
+                if (s.getBoundingClientRect().top < trigger) {
+                    s.style.opacity = 1;
+                    s.style.transform = "translateX(0)";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

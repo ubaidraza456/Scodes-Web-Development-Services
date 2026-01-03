@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO -->
+    <meta name="description"
+        content="Read expert insights by Scodes on web design, development, animations, landing pages, and digital experiences.">
+    <meta name="keywords" content="web design blog, web development blog, UI UX blog, Scodes blog">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <title>Blog | Scodes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #07122d;
+            color: #fff;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        /* LOGO + TEXT WRAPPER */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* ← yahin se distance control hota hai */
+        }
+
+        /* CIRCLE LOGO */
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* TEXT LOGO */
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        /* NAV LINKS */
+        .navbar a {
+            margin-left: 30px;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #38bdf8;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        /* BLOG HERO */
+        .blog-hero {
+            padding: 140px 20px 80px;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 56px;
+            margin-bottom: 10px;
+        }
+
+        .blog-hero p {
+            color: #94a3b8;
+            font-size: 18px;
+        }
+
+        /* BLOG GRID */
+        .blog-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 40px 100px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        /* BLOG CARD */
+        .blog-card {
+            position: relative;
+            padding: 32px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            text-decoration: none;
+            color: #fff;
+            transition: 0.4s ease;
+            overflow: hidden;
+        }
+
+        .blog-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+        }
+
+        /* TAG */
+        .tag {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #38bdf8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* TEXT */
+        .blog-card h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: #cbd5f5;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            margin-top: 18px;
+            font-weight: 600;
+            color: #38bdf8;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="brand">
+            <img src="Scodes.jpg" alt="Scodes Logo" class="brand-logo">
+            <h2 class="logo">Scodes<span>.</span></h2>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="blog-hero">
+        <h1>Scodes Blog</h1>
+        <p>Design, development & interactive experiences — explained simply.</p>
+    </section>
+
+    <section class="blog-section">
+        <div class="blog-grid">
+
+            <a href="blog-1.html" class="blog-card reveal">
+                <span class="tag">Web Design</span>
+                <h2>Why Every Business Needs a Professional Website</h2>
+                <p>Learn how a modern website builds trust, visibility and long-term growth.</p>
+                <div class="read-more">Read Article →</div>
+            </a>
+
+            <a href="blog-2.html" class="blog-card reveal">
+                <span class="tag">Top Trends</span>
+                <h2>Top 5 Web Design Trends in 2026</h2>
+                <p>Stay ahead of the curve with modern, interactive, and engaging website design strategies.</p>
+                <div class="read-more">Read Article →</div>
+            </a>
+
+        </div>
+    </section>
+</body>
+
+</html>

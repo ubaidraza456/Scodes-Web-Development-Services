@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interact with Scodes | Let's Build Something Amazing</title>
+    <meta name="description"
+        content="Experience next-level animations and interactions by Scodes. We design immersive digital experiences that engage users.">
+    <meta name="keywords" content="web interactions, website animations, interactive UI, Scodes interaction design">
+    <meta name="author" content="Scodes">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <style>
+        /* ===== GENERAL RESET ===== */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO CINEMATIC ===== */
+        .hero-dabangg {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.3) saturate(1.2);
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5), rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        #hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            color: #38bdf8;
+            text-shadow: 0 0 12px #38bdf8;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .word {
+            opacity: 0;
+            transform: translateY(30px);
+            display: inline-block;
+            animation: wordFade 0.8s forwards;
+        }
+
+        .word:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .word:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .word:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .word:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes wordFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 1s;
+        }
+
+        .hero-cta {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.4);
+            transition: 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 1.2s;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.1) translateY(-6px);
+            box-shadow: 0 25px 80px rgba(56, 189, 248, 0.7);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Particles Canvas */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ===== INTERACTIVE CARDS ===== */
+        .interaction-preview {
+            padding: 100px 20px;
+            background: #0f172a;
+            text-align: center;
+        }
+
+        .interaction-preview h2 {
+            font-size: 44px;
+            margin-bottom: 60px;
+            color: #38bdf8;
+        }
+
+        .preview-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #111827, #1e293b);
+            border-radius: 28px;
+            width: 300px;
+            padding: 40px 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform: scale(0.95);
+            transition: 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 40px 100px rgba(56, 189, 248, 0.6);
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(15deg);
+        }
+
+        /* Card content */
+        .card-content h3 {
+            font-size: 24px;
+            color: #38bdf8;
+        }
+
+        .card-content p {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 12px;
+        }
+
+        .card-btn {
+            padding: 12px 36px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.4s ease;
+        }
+
+        .card-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.45);
+        }
+
+        /* ===== CHAT / CONVERSATION ===== */
+        .conversation-preview {
+            padding: 100px 20px;
+            background: #111827;
+            text-align: center;
+        }
+
+        .conversation-preview h2 {
+            font-size: 44px;
+            margin-bottom: 40px;
+            color: #38bdf8;
+        }
+
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .chat-message {
+            padding: 12px 20px;
+            border-radius: 20px;
+            max-width: 80%;
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .chat-message.bot {
+            background: #1e293b;
+            align-self: flex-start;
+        }
+
+        .chat-message.user {
+            background: #38bdf8;
+            color: #0f172a;
+            align-self: flex-end;
+        }
+
+        /* Typing effect */
+        .typing {
+            display: inline-block;
+            width: 30px;
+            height: 4px;
+            background: #38bdf8;
+            border-radius: 2px;
+            animation: typingDots 1s infinite;
+        }
+
+        @keyframes typingDots {
+
+            0%,
+            20% {
+                transform: scaleX(0);
+            }
+
+            50% {
+                transform: scaleX(1);
+            }
+
+            100% {
+                transform: scaleX(0);
+            }
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            padding: 100px 20px;
+            background: #0f172a;
+            text-align: center;
+            color: #fff;
+        }
+
+        .contact-section h2 {
+            font-size: 44px;
+            color: #38bdf8;
+            margin-bottom: 24px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .contact-section button {
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .contact-section button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.45);
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .preview-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO CINEMATIC SECTION -->
+    <section class="hero-dabangg">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/hero-dabangg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <canvas id="hero-particles"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="word">Next</span>
+                <span class="word">Level</span>
+                <span class="word">Web</span>
+                <span class="word">Experience</span>
+            </h1>
+            <p class="hero-subtitle">Cinematic, interactive, and ultra-premium for your portfolio.</p>
+            <a href="#interaction-preview" class="hero-cta">Start the Journey</a>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CARDS / PREVIEW -->
+    <section class="interaction-preview" id="interaction-preview">
+        <h2>Next-Level Interactions</h2>
+        <div class="preview-cards">
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <div class="card-content">
+                    <h3>Web Development</h3>
+                    <p>Interactive websites with cinematic animations and hover effects.</p>
+                    <br>
+                    <a href="learnmore1.html" class="card-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <div class="card-content">
+                    <h3>Graphic Design</h3>
+                    <p>Stunning visuals with glow, parallax, and hover micro-animations.</p>
+                    <br>
+                    <a href="learnmore2.html" class="card-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📄</div>
+                <div class="card-content">
+                    <h3>Landing Pages</h3>
+                    <p>High-converting, animated landing pages for ultimate engagement.</p>
+                    <br>
+                    <a href="learnmore4.html" class="card-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE CONVERSATION -->
+    <section class="conversation-preview">
+        <h2>Conversation Preview</h2>
+        <div class="chat-box">
+            <div class="chat-message bot"><span class="typing"></span></div>
+            <div class="chat-message user">Hi! Show me your interactive projects.</div>
+            <div class="chat-message bot">Sure! Watch these stunning previews unfold.</div>
+            <div class="chat-message user">Amazing! How do I start?</div>
+            <div class="chat-message bot">Click the <strong>Start the Journey</strong> button now!</div>
+        </div>
+        <a href="#contact" class="hero-cta">Start the Journey</a>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section id="contact" class="contact-section">
+        <h2>Let's Collaborate</h2>
+        <p>Get in touch to create your next blockbuster website!</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        const canvas = document.getElementById('hero-particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 3 + 1,
+                dx: (Math.random() - 0.5) * 1.2,
+                dy: (Math.random() - 0.5) * 1.2,
+                color: `rgba(56,189,248,${Math.random()})`
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.dx; p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        // Optional: Parallax effect for text
+        document.addEventListener('mousemove', e => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 100;
+            const moveY = (e.clientY - window.innerHeight / 2) / 100;
+            document.querySelector('.hero-content').style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Scodes - Start your Digital Project</title>
+    <meta name="description"
+        content="Get in touch with Scodes to start your web, design, or digital experience project. Let’s build something impactful together.">
+    <meta name="keywords" content="contact Scodes, web design contact, start web project">
+    <meta name="author" content="Scodes">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+</head>
+
+<body>
+    <header class="main-nav">
+        <div class="logo">Contact Us</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="interaction.html">Interaction</a></li>
+                <li><a href="learnmore1.html">Web Dev</a></li>
+                <li><a href="learnmore2.html">Design</a></li>
+                <li><a href="learnmore4.html">Landing Pages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-intro">
+                <h2>Get in <span>Touch</span></h2>
+                <p>Have a project in mind? Let’s make it happen. Reach out and let’s build something amazing together!
+                </p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <select name="project" required>
+                        <option value="" disabled selected>Project Type</option>
+                        <option value="web">Web Development</option>
+                        <option value="landing">Landing Page</option>
+                        <option value="design">Website Image Design</option>
+                        <option value="animation">Animations & Interactions</option>
+                    </select>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <a href="#contact" class="submit-btn">Send Message</a>
+                </form>
+                <div class="contact-info">
+                    <div><strong>Email:</strong> codewithraza1@gmail.com</div>
+                    <div><strong>Phone / Whatsapp:</strong> +92 3220245254</div>
+                    <div><strong>Social:</strong> <a href="https://www.fiverr.com/s/dDXzZwG" target="_blank">Fiverr
+                            Account</a></div>
+                    <div><strong>Social:</strong> <a href="https://www.fiverr.com/s/VY59jkZ" target="_blank">Fiverr
+                            Gig</a></div>
+                </div>
+            </div>
+            <!-- ===== SOCIAL BUTTONS ===== -->
+            <div class="social-buttons">
+                <a href="https://www.instagram.com/webdeveloper.778961?igsh=MXczMnIwOGhrcmI2dQ=="
+                    class="social-btn instagram">IG</a>
+                <a href="https://www.facebook.com/share/1L5BgqnUGK/" class="social-btn facebook">FB</a>
+                <a href="https://www.linkedin.com/in/ubaid-raza-981463378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    class="social-btn linkedin">IN</a>
+            </div>
+
+        </div>
+    </section>
+
+    <form action="https://formspree.io/f/xrebaaqq" method="POST" class="contact-form" id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <footer>
+        <ul>
+            <li><a href="interaction.html">Interaction</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
+
+<style>
+    .main-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.9);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 40px;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+    }
+
+    .main-nav .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #38bdf8;
+    }
+
+    .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+    }
+
+    .main-nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .main-nav ul li a:hover {
+        color: #38bdf8;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+        padding: 120px 20px;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+
+    .contact-intro {
+        animation: fadeLeft 1.2s ease forwards;
+    }
+
+    .contact-intro h2 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .contact-intro h2 span {
+        color: #38bdf8;
+    }
+
+    .contact-intro p {
+        line-height: 1.7;
+        opacity: .85;
+        font-size: 18px;
+    }
+
+    .contact-form-wrapper {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        padding: 40px;
+        border-radius: 35px;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, .35);
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        animation: fadeRight 1.2s ease forwards;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-size: 16px;
+        transition: .4s;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+        background: rgba(56, 189, 248, 0.15);
+        box-shadow: 0 8px 20px rgba(56, 189, 248, .4);
+        transform: scale(1.02);
+    }
+
+    .submit-btn {
+        padding: 18px 60px;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        border: none;
+        color: #0f172a;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: .5s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-8px) scale(1.08);
+        box-shadow: 0 30px 60px rgba(56, 189, 248, .6);
+    }
+
+    .contact-info {
+        margin-top: 20px;
+        font-size: 16px;
+        opacity: .85;
+    }
+
+    .contact-info a {
+        color: #38bdf8;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    .contact-info a:hover {
+        color: #0ea5e9;
+        text-decoration: underline;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0)
+        }
+    }
+
+    @keyframes fadeRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0)
+        }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:1024px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-intro h2 {
+            font-size: 38px;
+        }
+    }
+
+    /* ===== SOCIAL BUTTONS CONTAINER ===== */
+    .social-buttons {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    /* ===== BASE BUTTON ===== */
+    .social-btn {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: 700;
+        font-size: 18px;
+        text-decoration: none;
+        transition: .5s;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+    }
+
+    /* ===== INDIVIDUAL COLORS ===== */
+    .instagram {
+        background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+
+    .facebook {
+        background: #1877f2;
+    }
+
+    .whatsapp {
+        background: #25d366;
+    }
+
+    .linkedin {
+        background: #0a66c2;
+    }
+
+    /* ===== HOVER ANIMATION ===== */
+    .social-btn:hover {
+        transform: scale(1.25) rotate(-5deg);
+        box-shadow: 0 20px 50px rgba(56, 189, 248, .6);
+    }
+
+    /* ===== GLOW EFFECT ===== */
+    .social-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffffff33, transparent 60%);
+        opacity: 0;
+        transition: .5s;
+    }
+
+    .social-btn:hover::before {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+
+    /* ===== ICON / TEXT ANIMATION ===== */
+    .social-btn::after {
+        content: attr(data-icon);
+        position: absolute;
+        font-size: 14px;
+        top: 70%;
+        color: #fff;
+        opacity: 0;
+        transition: .5s;
+    }
+
+    .social-btn:hover::after {
+        top: 10%;
+        opacity: 1;
+        animation: bounce 0.6s ease infinite alternate;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-8px);
+        }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:480px) {
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 16px;
+        }
+    }
+
+    /* ===== SOCIAL BUTTONS CONTAINER ===== */
+    .social-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        /* evenly spread across container */
+        align-items: center;
+        /* vertically center */
+        margin: 60px auto;
+        /* upar/neeche space + horizontally center container */
+        max-width: 600px;
+        /* optional: container width */
+        padding: 0 20px;
+        /* thoda side padding for small screens */
+    }
+
+    /* ===== BASE BUTTON ===== */
+    .social-btn {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: 700;
+        font-size: 20px;
+        text-decoration: none;
+        transition: .5s;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+    }
+
+    /* =========================
+   Contact Form Styles
+========================= */
+    .contact-form {
+        max-width: 500px;
+        margin: 40px auto;
+        background: rgba(15, 23, 42, 0.8);
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Input & Textarea */
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 10px;
+        border: 1px solid #38bdf8;
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        resize: none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: #ccc;
+    }
+
+    /* Focus Effect */
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: #0ea5e9;
+        box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
+        outline: none;
+    }
+
+    /* Submit Button */
+    .contact-form button {
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.6);
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 600px) {
+        .contact-form {
+            padding: 25px 20px;
+            margin: 20px;
+        }
+    }
+
+    /* Footer Container */
+    footer {
+        background: rgba(15, 23, 42, 0.95);
+        padding: 30px 0;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 100;
+    }
+
+    /* Footer List */
+    footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Footer Links */
+    footer ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    /* Hover Effect */
+    footer ul li a:hover {
+        color: #38bdf8;
+        text-shadow: 0 0 12px #38bdf8;
+    }
+
+    /* Responsive */
+    @media (max-width:768px) {
+        footer ul {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+</style>
+
+<script>
+    // Smooth scroll reveal for form + intro
+    const contactIntro = document.querySelector('.contact-intro');
+    const contactFormWrapper = document.querySelector('.contact-form-wrapper');
+
+    window.addEventListener('scroll', () => {
+        const trigger = window.innerHeight * 0.85;
+
+        if (contactIntro.getBoundingClientRect().top < trigger) {
+            contactIntro.style.opacity = 1;
+            contactIntro.style.transform = "translateX(0)";
+        }
+        if (contactFormWrapper.getBoundingClientRect().top < trigger) {
+            contactFormWrapper.style.opacity = 1;
+            contactFormWrapper.style.transform = "translateX(0)";
+        }
+    });
+</script>

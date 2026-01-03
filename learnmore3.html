@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Animations & Interactive Experiences | Scodes</title>
+    <meta name="description"
+        content="Scodes creates premium animations and interactions that transform websites into engaging digital experiences.">
+    <meta name="keywords" content="web animations, interactive experiences, UI animations, Scodes interactions">
+    <meta name="author" content="Scodes">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO ===== */
+        .animations-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #0f172a;
+        }
+
+        /* Background video */
+        .animations-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.75) saturate(1.1);
+        }
+
+        /* Overlay for readability */
+        .animations-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(15, 23, 42, 0.85),
+                    rgba(15, 23, 42, 0.65));
+            z-index: 1;
+        }
+
+        /* Hero Content */
+        .animations-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            color: #fff;
+        }
+
+        .animations-hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 24px;
+        }
+
+        .animations-hero-content h1 span {
+            color: #38bdf8;
+        }
+
+        .animations-hero-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 36px;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 52px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.4s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 25px 45px rgba(56, 189, 248, 0.45);
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .animations-hero-content h1 {
+                font-size: 40px;
+            }
+
+            .animations-hero-content p {
+                font-size: 16px;
+            }
+        }
+
+        /* 
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                radial-gradient(circle at top, #38bdf8, transparent 60%),
+                #0f172a;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            animation: fadeDown 1.2s ease;
+        }
+
+        .hero span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 25px auto 0;
+            opacity: .85;
+            animation: fadeUp 1.6s ease;
+        } */
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 120px 80px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* ===== ANIMATION CARDS ===== */
+        .anim-card {
+            padding: 45px 40px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            transform: translateY(60px);
+            opacity: 0;
+            transition: .8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anim-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
+            opacity: 0;
+            transition: .6s;
+        }
+
+        .anim-card:hover::before {
+            opacity: .25;
+        }
+
+        .anim-card:hover {
+            transform: translateY(-18px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(56, 189, 248, .35);
+        }
+
+        .anim-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .anim-card p {
+            opacity: .85;
+            line-height: 1.7;
+        }
+
+        /* ===== INTERACTION DEMO ===== */
+        .demo {
+            margin-top: 110px;
+            text-align: center;
+        }
+
+        .demo h2 {
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .demo-btn {
+            padding: 18px 55px;
+            border-radius: 40px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: 700;
+            display: inline-block;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+
+        /* ===== INTERACTION PREVIEW SECTION ===== */
+        .demo-section {
+            margin-top: 120px;
+            padding: 90px 40px;
+            text-align: center;
+            border-radius: 35px;
+            background:
+                linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(14, 165, 233, 0.05)),
+                rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-section::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
+            opacity: .15;
+        }
+
+        .demo-section h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .demo-section p {
+            opacity: .85;
+            margin-bottom: 45px;
+        }
+
+        /* Button wrapper for focus */
+        .demo-btn-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Enhanced Demo Button */
+        .demo-btn {
+            padding: 20px 65px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: .5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glow effect */
+        .demo-btn::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, #ffffff88, transparent 60%);
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .demo-btn:hover::after {
+            opacity: 1;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 30px 60px rgba(56, 189, 248, .6);
+        }
+
+
+        .demo-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, .45);
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            margin-top: 120px;
+        }
+
+        .process h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: .8s ease;
+        }
+
+        .step span {
+            min-width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #38bdf8;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 15px 45px;
+            background: #fff;
+            color: #0f172a;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .4s;
+        }
+
+        .cta a:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Button Base */
+        .get-started-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Animation */
+        .get-started-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(56, 189, 248, 0.45);
+        }
+
+        /* Glowing effect (pulsing) */
+        .get-started-btn::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .get-started-btn:hover::after {
+            opacity: 1;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 40px
+            }
+
+            .section {
+                padding: 80px 30px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="animations-hero">
+
+        <!-- Background Video -->
+        <video class="animations-hero-video" autoplay muted loop playsinline>
+            <source src="13232-246463976_medium.mp4" type="video/mp4">
+        </video>
+
+        <!-- Hero Content -->
+        <div class="animations-hero-content">
+            <h1>Animations & <span>Interactions</span></h1>
+            <p>I create stunning web animations and interactive experiences to make websites engaging and dynamic.</p>
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section">
+        <div class="grid">
+
+            <div class="anim-card">
+                <h3>Scroll Animations</h3>
+                <p>
+                    Smooth reveal animations that guide users
+                    naturally through your website content.
+                </p>
+            </div>
+
+            <div class="anim-card">
+                <h3>Hover Interactions</h3>
+                <p>
+                    Interactive hover effects that improve usability
+                    and make the UI feel alive.
+                </p>
+            </div>
+
+            <div class="anim-card">
+                <h3>Micro-Interactions</h3>
+                <p>
+                    Small but powerful animations that give instant
+                    feedback to user actions.
+                </p>
+            </div>
+
+            <div class="anim-card">
+                <h3>Page Transitions</h3>
+                <p>
+                    Smooth transitions between sections and pages
+                    for a polished browsing experience.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- INTERACTION DEMO -->
+        <!-- INTERACTION DEMO -->
+        <div class="demo-section">
+            <h2>Interaction Preview</h2>
+            <p>Experience smooth hover and motion-based interactions.</p>
+            <a href="interaction.html" class="get-started-btn">Get Started</a>
+        </div>
+
+
+        <!-- PROCESS -->
+        <div class="process">
+            <h2>My Animation Process</h2>
+
+            <div class="step">
+                <span>1</span>
+                <div>
+                    <h4>UX Understanding</h4>
+                    <p>Understanding user behavior and interaction flow.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <div>
+                    <h4>Motion Planning</h4>
+                    <p>Deciding where animations add value (not distraction).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <div>
+                    <h4>Implementation</h4>
+                    <p>Developing smooth and optimized animations.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>4</span>
+                <div>
+                    <h4>Testing & Polish</h4>
+                    <p>Ensuring performance, smoothness and consistency.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Want Your Website to Feel Premium?</h2>
+        <p>Let’s add animations that users love.</p>
+        <br>
+        <a href="conversationpreview.html">Start a Project</a>
+    </section>
+
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        const cards = document.querySelectorAll('.anim-card');
+        const steps = document.querySelectorAll('.step');
+
+        window.addEventListener('scroll', () => {
+            const trigger = window.innerHeight * 0.85;
+
+            cards.forEach(card => {
+                if (card.getBoundingClientRect().top < trigger) {
+                    card.style.opacity = 1;
+                    card.style.transform = "translateY(0)";
+                }
+            });
+
+            steps.forEach(step => {
+                if (step.getBoundingClientRect().top < trigger) {
+                    step.style.opacity = 1;
+                    step.style.transform = "translateX(0)";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
