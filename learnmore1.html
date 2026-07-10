@@ -3,55 +3,51 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Web Development Services | Scodes</title>
+    <title>Shopify Development Services | Scodes</title>
     <meta name="description"
-        content="Scodes provides modern, fast, and scalable web development services using clean code, smooth UX, and responsive layouts.">
-    <meta name="keywords" content="web development services, website development, Scodes web development">
+        content="Scodes provides high-converting, modern, and scalable Shopify development services including custom liquid sections, theme setup, and UX optimization.">
+    <meta name="keywords" content="shopify development services, custom liquid themes, e-commerce web design, Scodes shopify">
     <meta name="author" content="Scodes">
     <meta name="robots" content="index, follow">
-    <!-- Favicon for browser tab -->
     <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        #smoke-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            /* content ke peeche */
-            background: #0f172a;
-            /* website base color */
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background: #0f172a;
-            color: #fff;
+            background: #030712;
+            color: #f8fafc;
             overflow-x: hidden;
+            letter-spacing: -0.2px;
         }
 
-        /* ===== HERO ===== */
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* ===== HERO SECTION ===== */
         .web-hero {
             position: relative;
             width: 100%;
-            height: 100vh;
-            /* Full screen */
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            background: #0f172a;
+            padding: 120px 24px 60px;
+            background: radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.15), transparent 50%);
         }
 
-        /* Background video */
         .web-hero-video {
             position: absolute;
             top: 0;
@@ -60,354 +56,357 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
-            filter: brightness(0.75) saturate(1.1);
+            filter: brightness(0.4) saturate(1.2);
+            opacity: 0.6;
         }
 
-        /* Overlay for readability */
         .web-hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom,
-                    rgba(15, 23, 42, 0.85),
-                    rgba(15, 23, 42, 0.65));
+            background: linear-gradient(to bottom, rgba(3, 7, 18, 0.4), #030712);
             z-index: 1;
         }
 
-        /* Hero Content */
         .web-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 760px;
-            color: #fff;
+            max-width: 820px;
+        }
+
+        .hero-badge {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 24px;
         }
 
         .web-hero-content h1 {
-            font-size: 52px;
+            font-size: clamp(38px, 6vw, 68px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
             margin-bottom: 24px;
         }
 
         .web-hero-content h1 span {
-            color: #38bdf8;
+            color: transparent;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
         .web-hero-content p {
-            font-size: 18px;
-            line-height: 1.6;
-            opacity: 0.9;
-            margin-bottom: 36px;
+            font-size: clamp(16px, 2vw, 19px);
+            line-height: 1.65;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* CTA Button */
-        .cta-btn {
-            display: inline-block;
-            padding: 18px 52px;
-            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: 0.4s ease;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 25px 45px rgba(56, 189, 248, 0.45);
-        }
-
-        /* Responsive */
-        @media(max-width:768px) {
-            .web-hero-content h1 {
-                font-size: 40px;
-            }
-
-            .web-hero-content p {
-                font-size: 16px;
-            }
-        }
-
-        /* .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 20px;
-            background:
-                radial-gradient(circle at top, #38bdf8, transparent 60%),
-                #0f172a;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-            animation: fadeDown 1.2s ease;
-        }
-
-        .hero span {
-            color: #38bdf8;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: 25px auto 0;
-            opacity: .85;
-            animation: fadeUp 1.6s ease;
-        } */
-
-        /* ===== SECTION ===== */
+        /* ===== FEATURES BENTO GRID ===== */
         .section {
-            padding: 120px 80px;
+            padding: 80px 10% 120px;
+            position: relative;
+            z-index: 2;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        /* ===== FEATURE CARDS ===== */
         .feature {
-            padding: 45px 40px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            transform: translateY(60px);
+            padding: 50px 40px;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transform: translateY(50px);
             opacity: 0;
-            transition: .8s ease;
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
-            overflow: hidden;
-        }
-
-        .feature::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
-            opacity: 0;
-            transition: .6s;
-        }
-
-        .feature:hover::before {
-            opacity: .25;
         }
 
         .feature:hover {
-            transform: translateY(-18px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(56, 189, 248, .35);
+            transform: translateY(-10px) scale(1.02) !important;
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.02);
+        }
+
+        .feature-icon {
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #38bdf8;
+            margin-bottom: 30px;
+            transition: 0.4s ease;
+        }
+
+        .feature:hover .feature-icon {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            color: #030712;
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
         }
 
         .feature h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
         }
 
         .feature p {
-            opacity: .85;
+            color: #64748b;
+            font-size: 15px;
             line-height: 1.7;
+            transition: 0.3s ease;
         }
 
-        /* ===== PROCESS ===== */
+        .feature:hover p {
+            color: #cbd5e1;
+        }
+
+        /* ===== TIMELINE PROCESS ===== */
         .process {
-            margin-top: 100px;
+            margin-top: 140px;
         }
 
         .process h2 {
             text-align: center;
-            font-size: 42px;
+            font-size: 38px;
+            letter-spacing: -1px;
             margin-bottom: 60px;
+        }
+
+        .process h2 span {
+            color: #38bdf8;
+        }
+
+        .step-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .step {
             display: flex;
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             opacity: 0;
-            transform: translateX(-60px);
-            transition: .8s ease;
+            transform: translateX(-40px);
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 25px 30px;
+            border-radius: 20px;
         }
 
         .step span {
-            min-width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #38bdf8;
-            color: #0f172a;
+            min-width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
         }
 
-        /* ===== CTA ===== */
+        .step h4 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .step p {
+            color: #64748b;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        /* ===== HIGH CONVERSION CTA ===== */
         .cta {
-            padding: 120px 20px;
+            margin: 0 10% 120px;
+            padding: 90px 40px;
+            border-radius: 36px;
             text-align: center;
-            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(3, 7, 18, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
 
         .cta h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+            font-size: clamp(28px, 4vw, 44px);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: #64748b;
+            font-size: 16px;
+            max-width: 520px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
         }
 
         .cta a {
-            display: inline-block;
-            padding: 15px 45px;
-            background: #fff;
-            color: #0f172a;
-            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 45px;
+            background: #ffffff;
+            color: #030712;
+            border-radius: 100px;
             text-decoration: none;
-            font-weight: 600;
-            transition: .4s;
+            font-weight: 700;
+            font-size: 14.5px;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .cta a:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3);
+            background: #38bdf8;
+            color: #030712;
         }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
+        /* ===== RESPONSIVE FLOWS ===== */
+        @media(max-width: 1024px) {
+            .section { padding: 80px 6% 100px; }
+            .cta { margin: 0 6% 100px; }
         }
 
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media(max-width:768px) {
-            .hero h1 {
-                font-size: 42px
-            }
-
-            .section {
-                padding: 80px 30px
-            }
+        @media(max-width: 768px) {
+            .section { padding: 60px 4% 80px; }
+            .step { gap: 20px; padding: 20px; }
+            .cta { margin: 0 4% 80px; padding: 60px 20px; }
         }
     </style>
 </head>
 
 <body>
-    <canvas id="smoke-canvas"></canvas>
-    <!-- HERO -->
-    <section class="web-hero">
 
-        <!-- Background Video -->
+    <canvas id="smoke-canvas"></canvas>
+
+    <!-- INTERACTIVE HERO ELEMENT -->
+    <section class="web-hero">
         <video class="web-hero-video" autoplay muted loop playsinline>
-            <source src="27920-366469249_tiny.mp4" type="video/mp4">
+            <source src="shopify-store-video.mp4" type="video/mp4">
         </video>
 
-        <!-- Hero Content -->
         <div class="web-hero-content">
-            <h1>Web Development <span>Services</span></h1>
-            <p>I design and develop responsive, modern, and high-performing websites for clients worldwide.</p>
+            <span class="hero-badge">Shopify Expert Architecture</span>
+            <h1>High-Converting <span>Shopify Stores</span></h1>
+            <p>I build custom Shopify templates, lightweight layouts, and bespoke storefront adjustments engineered specifically to scale your brand's digital revenue.</p>
         </div>
-
     </section>
 
-    <!-- FEATURES -->
+    <!-- SERVICES FEATURE SET -->
     <section class="section">
         <div class="grid">
 
+            <!-- Capability 1: Custom Liquid & Theme Tweaks -->
             <div class="feature">
-                <h3>Responsive Design</h3>
-                <p>
-                    Your website will look perfect on mobile, tablet and desktop
-                    with a fully responsive layout.
-                </p>
+                <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
+                <h3>Custom Liquid Development</h3>
+                <p>Tailored section blocks, bespoke interactive sliders, and advanced layout shifts coded natively without bloating your store with slow third-party apps.</p>
             </div>
 
+            <!-- Capability 2: Full Setup & Architecture -->
             <div class="feature">
-                <h3>Clean & Optimized Code</h3>
-                <p>
-                    SEO-friendly, lightweight and well-structured code
-                    for speed and long-term scalability.
-                </p>
+                <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
+                <h3>Complete Store Setup</h3>
+                <p>Strategic theme onboarding, multi-layered premium product architectures, cart logic optimization, and checkout workflows built for scale.</p>
             </div>
 
+            <!-- Capability 3: Premium UI Design -->
             <div class="feature">
-                <h3>Modern UI & Animations</h3>
-                <p>
-                    Smooth transitions, scroll animations and micro-interactions
-                    that give a premium user experience.
-                </p>
+                <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Luxury E-Commerce UI</h3>
+                <p>High-end digital aesthetics featuring fluid transition feedback, precise typographic hierarchies, and micro-interactions optimized for luxury buyers.</p>
             </div>
 
+            <!-- Capability 4: Speed Blueprinting -->
             <div class="feature">
-                <h3>Performance Focused</h3>
-                <p>
-                    Fast loading times, optimized assets and best practices
-                    for high performance.
-                </p>
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Performance & Speed Tuning</h3>
+                <p>Asset optimization, structure minimization, script offloading, and standard core web vitals configurations designed for lightning fast page loads.</p>
             </div>
 
         </div>
 
-        <!-- PROCESS -->
+        <!-- PROCESS SEGMENTATION -->
         <div class="process">
-            <h2>My Development Process</h2>
+            <h2>The Shopify <span>Blueprint Process</span></h2>
 
-            <div class="step">
-                <span>1</span>
-                <div>
-                    <h4>Planning & Research</h4>
-                    <p>Understanding your business goals and project requirements.</p>
+            <div class="step-container">
+                <div class="step">
+                    <span>1</span>
+                    <div>
+                        <h4>Discovery & Structural Strategy</h4>
+                        <p>Analyzing product variables, conversion bottlenecks, and charting precise theme requirements.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="step">
-                <span>2</span>
-                <div>
-                    <h4>Design & Structure</h4>
-                    <p>Creating layout structure and UI flow for best user experience.</p>
+                <div class="step">
+                    <span>2</span>
+                    <div>
+                        <h4>UX Engineering & Wireframing</h4>
+                        <p>Drafting layout architectures focused entirely on modern navigational layouts and smooth mobile interactions.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="step">
-                <span>3</span>
-                <div>
-                    <h4>Development & Animation</h4>
-                    <p>Coding with clean structure, animations and interactions.</p>
+                <div class="step">
+                    <span>3</span>
+                    <div>
+                        <h4>Native Liquid Development</h4>
+                        <p>Hardcoding elements with clean asset mapping, ensuring zero backend drag and maximum long-term stability.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="step">
-                <span>4</span>
-                <div>
-                    <h4>Testing & Delivery</h4>
-                    <p>Testing across devices and delivering a polished website.</p>
+                <div class="step">
+                    <span>4</span>
+                    <div>
+                        <h4>Optimized Store Handoff</h4>
+                        <p>Comprehensive responsive layout validation, complete testing, and automated asset deployment for launch.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ACTION DISPATCHER CONTROLLER -->
     <section class="cta">
-        <h2>Want a Website Like This?</h2>
-        <p>Let’s build a high-quality web experience together.</p>
-        <br>
-        <a href="conversationpreview.html">Start a Project</a>
+        <h2>Launch Your Premium Store</h2>
+        <p>Let’s coordinate on structural goals and engineer a high-performing Shopify experience.</p>
+        <a href="conversationpreview.html">Initiate Store Build <i class="fa-solid fa-arrow-right"></i></a>
     </section>
 
-    <!-- SCROLL ANIMATION SCRIPT -->
+    <!-- PERFORMANCE OPTIMIZED CANVAS CONTROLLER -->
     <script>
         const canvas = document.getElementById('smoke-canvas');
         const ctx = canvas.getContext('2d');
@@ -428,13 +427,12 @@
             reset() {
                 this.x = Math.random() * w;
                 this.y = h + Math.random() * 200;
-                this.size = 80 + Math.random() * 120;
-                this.speedY = 0.2 + Math.random() * 0.6;
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.opacity = 0.03 + Math.random() * 0.05;
+                this.size = 90 + Math.random() * 110;
+                this.speedY = 0.15 + Math.random() * 0.4;
+                this.speedX = (Math.random() - 0.5) * 0.25;
+                this.opacity = 0.02 + Math.random() * 0.04;
                 this.life = 0;
-                this.maxLife = 600 + Math.random() * 400;
-                this.color = `rgba(56,189,248,${this.opacity})`; /* blue smoke */
+                this.maxLife = 700 + Math.random() * 300;
             }
 
             update() {
@@ -442,56 +440,69 @@
                 this.x += this.speedX;
                 this.life++;
 
-                if (this.life > this.maxLife) {
+                if (this.life > this.maxLife || this.y < -this.size) {
                     this.reset();
                 }
             }
 
             draw() {
+                // Using clean layered alphas to dodge sluggish native ctx.filter blurs
                 ctx.beginPath();
-                ctx.fillStyle = this.color;
-                ctx.filter = "blur(40px)";
+                let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+                gradient.addColorStop(0, `rgba(56, 189, 248, ${this.opacity})`);
+                gradient.addColorStop(0.5, `rgba(129, 140, 248, ${this.opacity * 0.4})`);
+                gradient.addColorStop(1, 'rgba(3, 7, 12, 0)');
+                ctx.fillStyle = gradient;
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
         const particles = [];
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 22; i++) {
             particles.push(new SmokeParticle());
         }
 
         function animate() {
-            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.08)'; // Smooth frame trails
+            ctx.fillRect(0, 0, w, h);
+            
+            // soft composite balance setup
+            ctx.globalCompositeOperation = 'screen';
             particles.forEach(p => {
                 p.update();
                 p.draw();
             });
+            ctx.globalCompositeOperation = 'source-over';
+            
             requestAnimationFrame(animate);
         }
-
         animate();
 
+        // SCROLL REVEAL INTERACTION LOGIC
         const features = document.querySelectorAll('.feature');
         const steps = document.querySelectorAll('.step');
 
-        window.addEventListener('scroll', () => {
-            const trigger = window.innerHeight * 0.85;
+        function scrollReveal() {
+            const trigger = window.innerHeight * 0.88;
 
             features.forEach(f => {
                 if (f.getBoundingClientRect().top < trigger) {
-                    f.style.opacity = 1;
+                    f.style.opacity = "1";
                     f.style.transform = "translateY(0)";
                 }
             });
 
             steps.forEach(s => {
                 if (s.getBoundingClientRect().top < trigger) {
-                    s.style.opacity = 1;
+                    s.style.opacity = "1";
                     s.style.transform = "translateX(0)";
                 }
             });
-        });
+        }
+
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal); // Early execution if components are view-centered
     </script>
 
 </body>
