@@ -3,46 +3,71 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Animations & Interactive Experiences | Scodes</title>
+    <title>SEO Optimization & Performance Engineering | Scodes</title>
     <meta name="description"
-        content="Scodes creates premium animations and interactions that transform websites into engaging digital experiences.">
-    <meta name="keywords" content="web animations, interactive experiences, UI animations, Scodes interactions">
+        content="Scodes provides high-end technical SEO engineering, speed optimization, and search visibility architecture to scale your organic growth.">
+    <meta name="keywords"
+        content="technical seo, core web vitals, speed optimization, search engine visibility, programmatic seo, Scodes growth">
     <meta name="author" content="Scodes">
     <meta name="robots" content="index, follow">
-    <!-- Favicon for browser tab -->
     <link rel="icon" type="image/jpg" sizes="32x32" href="Scodes.jpg" class="brand-logo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background: #0f172a;
-            color: #fff;
+            background: #030712;
+            color: #f8fafc;
             overflow-x: hidden;
+            letter-spacing: -0.2px;
+            position: relative;
         }
 
-        /* ===== HERO ===== */
-        .animations-hero {
+        /* Ambient Growth Radar Grid Background */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 80% 15%, rgba(56, 189, 248, 0.05), transparent 45%),
+                radial-gradient(circle at 15% 75%, rgba(14, 165, 233, 0.04), transparent 40%);
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* ===== PREMIUM HERO SECTION ===== */
+        .seo-hero {
             position: relative;
             width: 100%;
-            height: 100vh;
+            min-height: 95vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            background: #0f172a;
+            padding: 120px 24px 60px;
+            background: radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.15), transparent 60%);
         }
 
-        /* Background video */
-        .animations-hero-video {
+        .seo-hero-video {
             position: absolute;
             top: 0;
             left: 0;
@@ -50,388 +75,309 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
-            filter: brightness(0.75) saturate(1.1);
+            filter: brightness(0.3) contrast(1.1);
+            opacity: 0.45;
         }
 
-        /* Overlay for readability */
-        .animations-hero::before {
+        .seo-hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom,
-                    rgba(15, 23, 42, 0.85),
-                    rgba(15, 23, 42, 0.65));
+            background: linear-gradient(to bottom, rgba(3, 7, 18, 0.3), #030712);
             z-index: 1;
         }
 
-        /* Hero Content */
-        .animations-hero-content {
+        .seo-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 760px;
-            color: #fff;
+            max-width: 860px;
         }
 
-        .animations-hero-content h1 {
-            font-size: 52px;
+        .hero-badge {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
             margin-bottom: 24px;
         }
 
-        .animations-hero-content h1 span {
-            color: #38bdf8;
-        }
-
-        .animations-hero-content p {
-            font-size: 18px;
-            line-height: 1.6;
-            opacity: 0.9;
-            margin-bottom: 36px;
-        }
-
-        /* CTA Button */
-        .cta-btn {
-            display: inline-block;
-            padding: 18px 52px;
-            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
+        .seo-hero-content h1 {
+            font-size: clamp(38px, 6vw, 64px);
             font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: 0.4s ease;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 25px 45px rgba(56, 189, 248, 0.45);
+        .seo-hero-content h1 span {
+            color: transparent;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
-        /* Responsive */
-        @media(max-width:768px) {
-            .animations-hero-content h1 {
-                font-size: 40px;
-            }
-
-            .animations-hero-content p {
-                font-size: 16px;
-            }
-        }
-
-        /* 
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 20px;
-            background:
-                radial-gradient(circle at top, #38bdf8, transparent 60%),
-                #0f172a;
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            animation: fadeDown 1.2s ease;
-        }
-
-        .hero span {
-            color: #38bdf8;
-        }
-
-        .hero p {
+        .seo-hero-content p {
+            font-size: clamp(16px, 2vw, 19px);
+            line-height: 1.65;
+            color: #94a3b8;
+            margin-bottom: 40px;
             max-width: 720px;
-            margin: 25px auto 0;
-            opacity: .85;
-            animation: fadeUp 1.6s ease;
-        } */
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        /* ===== SECTION ===== */
+        /* ===== SERVICES BENTO GRID ===== */
         .section {
-            padding: 120px 80px;
+            padding: 100px 10% 120px;
+            position: relative;
+            z-index: 2;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        /* ===== ANIMATION CARDS ===== */
-        .anim-card {
-            padding: 45px 40px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            transform: translateY(60px);
-            opacity: 0;
-            transition: .8s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .anim-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
-            opacity: 0;
-            transition: .6s;
-        }
-
-        .anim-card:hover::before {
-            opacity: .25;
-        }
-
-        .anim-card:hover {
-            transform: translateY(-18px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(56, 189, 248, .35);
-        }
-
-        .anim-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .anim-card p {
-            opacity: .85;
-            line-height: 1.7;
-        }
-
-        /* ===== INTERACTION DEMO ===== */
-        .demo {
-            margin-top: 110px;
-            text-align: center;
-        }
-
-        .demo h2 {
-            font-size: 42px;
-            margin-bottom: 40px;
-        }
-
-        .demo-btn {
-            padding: 18px 55px;
-            border-radius: 40px;
-            background: #38bdf8;
-            color: #0f172a;
-            font-weight: 700;
-            display: inline-block;
-            cursor: pointer;
-            transition: .4s ease;
-        }
-
-        /* ===== INTERACTION PREVIEW SECTION ===== */
-        .demo-section {
-            margin-top: 120px;
-            padding: 90px 40px;
-            text-align: center;
-            border-radius: 35px;
-            background:
-                linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(14, 165, 233, 0.05)),
-                rgba(255, 255, 255, 0.04);
+        .seo-card {
+            padding: 50px 40px;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.00) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+            -webkit-backdrop-filter: blur(20px);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            overflow: hidden;
         }
 
-        .demo-section::before {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(120deg, transparent, #38bdf8, transparent);
-            opacity: .15;
+        .seo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(56, 189, 248, 0.25);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(56, 189, 248, 0.02);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #38bdf8;
+            margin-bottom: 30px;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .seo-card:hover .card-icon {
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            color: #030712;
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
+        }
+
+        .seo-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .seo-card p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .seo-card:hover p {
+            color: #cbd5e1;
+        }
+
+        /* ===== INTERACTION DEMO HUB ===== */
+        .demo-section {
+            margin: 80px 0 140px;
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 32px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(3, 7, 18, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
         .demo-section h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 36px;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
         }
 
         .demo-section p {
-            opacity: .85;
-            margin-bottom: 45px;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 15.5px;
         }
 
-        /* Button wrapper for focus */
-        .demo-btn-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Enhanced Demo Button */
-        .demo-btn {
-            padding: 20px 65px;
-            border-radius: 50px;
+        .get-started-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 45px;
+            border-radius: 100px;
             background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
+            color: #030712;
             font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
-            transition: .5s ease;
-            position: relative;
-            overflow: hidden;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
         }
 
-        /* Glow effect */
-        .demo-btn::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top, #ffffff88, transparent 60%);
-            opacity: 0;
-            transition: .5s;
+        .get-started-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.35);
         }
 
-        .demo-btn:hover::after {
-            opacity: 1;
-        }
-
-        .demo-btn:hover {
-            transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 30px 60px rgba(56, 189, 248, .6);
-        }
-
-
-        .demo-btn:hover {
-            transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 20px 40px rgba(56, 189, 248, .45);
-        }
-
-        /* ===== PROCESS ===== */
-        .process {
-            margin-top: 120px;
-        }
-
+        /* ===== PROCESS GRAPH TIMELINE ===== */
         .process h2 {
             text-align: center;
-            font-size: 42px;
+            font-size: 38px;
+            letter-spacing: -1px;
             margin-bottom: 60px;
+        }
+
+        .process h2 span {
+            color: #38bdf8;
+        }
+
+        .step-container {
+            max-width: 840px;
+            margin: 0 auto;
         }
 
         .step {
             display: flex;
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             opacity: 0;
-            transform: translateX(-60px);
-            transition: .8s ease;
+            transform: translateX(-40px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 28px 32px;
+            border-radius: 24px;
         }
 
         .step span {
-            min-width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #38bdf8;
-            color: #0f172a;
+            min-width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
         }
 
-        /* ===== CTA ===== */
+        .step h4 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .step p {
+            color: #64748b;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        /* ===== HIGH CONVERSION ENGINE CTA ===== */
         .cta {
-            padding: 120px 20px;
+            margin: 0 10% 120px;
+            padding: 90px 40px;
+            border-radius: 36px;
             text-align: center;
-            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(3, 7, 18, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
 
         .cta h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+            font-size: clamp(28px, 4vw, 44px);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: #64748b;
+            font-size: 16px;
+            max-width: 560px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
         }
 
         .cta a {
-            display: inline-block;
-            padding: 15px 45px;
-            background: #fff;
-            color: #0f172a;
-            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 45px;
+            background: #ffffff;
+            color: #030712;
+            border-radius: 100px;
             text-decoration: none;
-            font-weight: 600;
-            transition: .4s;
+            font-weight: 700;
+            font-size: 14.5px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .cta a:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.25);
+            background: #38bdf8;
+            color: #030712;
         }
 
-        /* Button Base */
-        .get-started-btn {
-            display: inline-block;
-            padding: 16px 48px;
-            border-radius: 50px;
-            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-            color: #0f172a;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Hover Animation */
-        .get-started-btn:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(56, 189, 248, 0.45);
-        }
-
-        /* Glowing effect (pulsing) */
-        .get-started-btn::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .get-started-btn:hover::after {
-            opacity: 1;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media(max-width:768px) {
-            .hero h1 {
-                font-size: 40px
-            }
-
+        /* ===== BREAKPOINT MATRIX ===== */
+        @media(max-width: 1024px) {
             .section {
-                padding: 80px 30px
+                padding: 80px 6% 100px;
+            }
+
+            .cta {
+                margin: 0 6% 100px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .section {
+                padding: 60px 4% 80px;
+            }
+
+            .step {
+                gap: 20px;
+                padding: 22px;
+            }
+
+            .cta {
+                margin: 0 4% 80px;
+                padding: 60px 20px;
             }
         }
     </style>
@@ -439,138 +385,142 @@
 
 <body>
 
-    <!-- HERO -->
-    <section class="animations-hero">
-
-        <!-- Background Video -->
-        <video class="animations-hero-video" autoplay muted loop playsinline>
+    <!-- HERO SECTION -->
+    <section class="seo-hero">
+        <video class="seo-hero-video" autoplay muted loop playsinline>
             <source src="13232-246463976_medium.mp4" type="video/mp4">
         </video>
 
-        <!-- Hero Content -->
-        <div class="animations-hero-content">
-            <h1>Animations & <span>Interactions</span></h1>
-            <p>I create stunning web animations and interactive experiences to make websites engaging and dynamic.</p>
+        <div class="seo-hero-content">
+            <span class="hero-badge">Search Engine Engineering</span>
+            <h1>Data-Driven <span>SEO Excellence</span></h1>
+            <p>I build search-optimized web architectures designed to dominate rankings. No superficial tricks—just
+                pristine code structure, exceptional technical health, and hyper-targeted indexing models.</p>
         </div>
-
     </section>
 
-    <!-- SERVICES -->
+    <!-- CORE SEO ENGINE CAPABILITIES -->
     <section class="section">
         <div class="grid">
 
-            <div class="anim-card">
-                <h3>Scroll Animations</h3>
-                <p>
-                    Smooth reveal animations that guide users
-                    naturally through your website content.
-                </p>
+            <!-- Card 1: Technical SEO Engineering -->
+            <div class="seo-card">
+                <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
+                <h3>Technical SEO Engineering</h3>
+                <p>Constructing flawless semantic HTML validation, clean dynamic XML sitemaps, robots.txt routing
+                    structures, and comprehensive canonical management to ensure algorithmic indexation accuracy.</p>
             </div>
 
-            <div class="anim-card">
-                <h3>Hover Interactions</h3>
-                <p>
-                    Interactive hover effects that improve usability
-                    and make the UI feel alive.
-                </p>
+            <!-- Card 2: Core Web Vitals Optimization -->
+            <div class="seo-card">
+                <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <h3>Core Web Vitals Engineering</h3>
+                <p>Accelerating rendering runtimes to ace Largest Contentful Paint (LCP), eliminating cumulative layout
+                    shifts (CLS), and optimizing total blocking time for top speed scores.</p>
             </div>
 
-            <div class="anim-card">
-                <h3>Micro-Interactions</h3>
-                <p>
-                    Small but powerful animations that give instant
-                    feedback to user actions.
-                </p>
+            <!-- Card 3: Advanced Schema Markup -->
+            <div class="seo-card">
+                <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                <h3>Structured Schema Mapping</h3>
+                <p>Deploying advanced JSON-LD data modules to give modern engines precise context, powering
+                    high-visibility rich snippets, product matrices, and FAQ displays.</p>
             </div>
 
-            <div class="anim-card">
-                <h3>Page Transitions</h3>
-                <p>
-                    Smooth transitions between sections and pages
-                    for a polished browsing experience.
-                </p>
+            <!-- Card 4: Algorithmic Keyword Architecture -->
+            <div class="seo-card">
+                <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>Keyword Engineering</h3>
+                <p>Mapping programmatic content models based on real-world search intent metrics, organizing semantic
+                    silos, and building organic data paths to conversion hubs.</p>
             </div>
 
         </div>
 
-        <!-- INTERACTION DEMO -->
-        <!-- INTERACTION DEMO -->
+        <!-- SEARCH PREVIEW ZONE -->
         <div class="demo-section">
-            <h2>Interaction Preview</h2>
-            <p>Experience smooth hover and motion-based interactions.</p>
-            <a href="interaction.html" class="get-started-btn">Get Started</a>
+            <h2>Algorithmic Diagnostic Check</h2>
+            <p>Ready to audit code performance matrices and reveal visibility parameters?</p>
+            <a href="interaction.html" class="get-started-btn">Analyze Platform Health <i
+                    class="fa-solid fa-chart-line"></i></a>
         </div>
 
-
-        <!-- PROCESS -->
+        <!-- THE STRATEGIC WORKFLOW -->
         <div class="process">
-            <h2>My Animation Process</h2>
+            <h2>The Optimization <span>Process</span></h2>
 
-            <div class="step">
-                <span>1</span>
-                <div>
-                    <h4>UX Understanding</h4>
-                    <p>Understanding user behavior and interaction flow.</p>
+            <div class="step-container">
+                <div class="step">
+                    <span>1</span>
+                    <div>
+                        <h4>Deep Architecture Auditing</h4>
+                        <p>Crawling system layers to target broken route codes, configuration errors, asset weight
+                            blocks, and duplicate paths.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span>2</span>
+                    <div>
+                        <h4>Semantic Content Structuring</h4>
+                        <p>Aligning structural heading hierarchies ($H_1, H_2, H_3$), writing custom metadata strings,
+                            and organizing clean descriptive resource tags.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span>3</span>
+                    <div>
+                        <h4>Script & Asset Optimization</h4>
+                        <p>Compressing style bundles, delaying non-critical logic execution scripts, and refactoring
+                            dynamic code assets for instant load speeds.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span>4</span>
+                    <div>
+                        <h4>Authority & Index Tracking</h4>
+                        <p>Monitoring search console health reports, evaluating programmatic crawl rates, and scaling
+                            data velocity indexes continuously.</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="step">
-                <span>2</span>
-                <div>
-                    <h4>Motion Planning</h4>
-                    <p>Deciding where animations add value (not distraction).</p>
-                </div>
-            </div>
-
-            <div class="step">
-                <span>3</span>
-                <div>
-                    <h4>Implementation</h4>
-                    <p>Developing smooth and optimized animations.</p>
-                </div>
-            </div>
-
-            <div class="step">
-                <span>4</span>
-                <div>
-                    <h4>Testing & Polish</h4>
-                    <p>Ensuring performance, smoothness and consistency.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- HIGH-CONVERSION BOTTOM ROW -->
     <section class="cta">
-        <h2>Want Your Website to Feel Premium?</h2>
-        <p>Let’s add animations that users love.</p>
-        <br>
-        <a href="conversationpreview.html">Start a Project</a>
+        <h2>Dominate Organic Search Rankings</h2>
+        <p>Let's overhaul your platform's technical health metrics and accelerate your web performance strategy.</p>
+        <a href="conversationpreview.html">Initiate SEO Growth <i class="fa-solid fa-arrow-right"></i></a>
     </section>
 
-    <!-- SCROLL ANIMATION SCRIPT -->
+    <!-- VISIBILITY INTERACTION SCRIPT -->
     <script>
-        const cards = document.querySelectorAll('.anim-card');
+        const cards = document.querySelectorAll('.seo-card');
         const steps = document.querySelectorAll('.step');
 
-        window.addEventListener('scroll', () => {
-            const trigger = window.innerHeight * 0.85;
+        function revealOnScroll() {
+            const triggerOffset = window.innerHeight * 0.88;
 
             cards.forEach(card => {
-                if (card.getBoundingClientRect().top < trigger) {
-                    card.style.opacity = 1;
+                if (card.getBoundingClientRect().top < triggerOffset) {
+                    card.style.opacity = "1";
                     card.style.transform = "translateY(0)";
                 }
             });
 
             steps.forEach(step => {
-                if (step.getBoundingClientRect().top < trigger) {
-                    step.style.opacity = 1;
+                if (step.getBoundingClientRect().top < triggerOffset) {
+                    step.style.opacity = "1";
                     step.style.transform = "translateX(0)";
                 }
             });
-        });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
     </script>
 
 </body>
