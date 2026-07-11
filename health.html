@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Health Analyzer | Scodes Core</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --card-bg: linear-gradient(145deg, rgba(17, 24, 39, 0.45), rgba(9, 13, 22, 0.7));
+            --primary: #38bdf8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --critical: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-main);
+            padding: 40px 5%;
+        }
+
+        .header {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+        }
+
+        .header h1 span {
+            color: var(--primary);
+        }
+
+        .refresh-btn {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .refresh-btn:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            backdrop-filter: blur(12px);
+        }
+
+        .metric-title {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .status-healthy { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .status-warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+
+        /* Console Log Simulation Window */
+        .console-log {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            background: #090d16;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .console-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: var(--critical); }
+        .dot-yellow { background: var(--warning); }
+        .dot-green { background: var(--success); }
+
+        .console-body {
+            font-family: monospace;
+            font-size: 13px;
+            color: #38bdf8;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>System <span>Health Intelligence</span></h1>
+        <button class="refresh-btn" onclick="simulateDiagnostics()">Run Real-time Scan</button>
+    </div>
+
+    <div class="metrics-grid">
+        <!-- Metric 1 -->
+        <div class="metric-card">
+            <div class="metric-title">Server Response Time</div>
+            <div class="metric-value" id="latency-val">42ms</div>
+            <div class="status-badge status-healthy" id="latency-status">Optimal</div>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="metric-card">
+            <div class="metric-title">LCP (Page Load Speed)</div>
+            <div class="metric-value" id="speed-val">1.1s</div>
+            <div class="status-badge status-healthy" id="speed-status">Excellent</div>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="metric-card">
+            <div class="metric-title">SSL Certificate & DNS</div>
+            <div class="metric-value">Active</div>
+            <div class="status-badge status-healthy">Secured</div>
+        </div>
+    </div>
+
+    <!-- Live Logs -->
+    <div class="console-log">
+        <div class="console-header">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+        </div>
+        <div class="console-body" id="log-text">
+            [SYSTEM] Initialization successful.<br>
+            [DNS] Google Search Console TXT record verification verified.<br>
+            [MONITOR] Listening to platform triggers...
+        </div>
+    </div>
+
+    <script>
+        function simulateDiagnostics() {
+            // Random fluctuations generate karne ke liye loop
+            const latency = Math.floor(Math.random() * (90 - 30) + 30);
+            const loadTime = (Math.random() * (1.8 - 0.9) + 0.9).toFixed(1);
+
+            document.getElementById('latency-val').innerText = latency + 'ms';
+            document.getElementById('speed-val').innerText = loadTime + 's';
+
+            const log = document.getElementById('log-text');
+            log.innerHTML += `<br>[SCAN] Diagnostics complete. Latency: ${latency}ms | Speed: ${loadTime}s. Status: Operational.`;
+        }
+    </script>
+</body>
+</html>
